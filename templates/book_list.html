@@ -1,0 +1,13 @@
+<h1>List of books</h1>
+<ul>
+    <a href="{% url 'book_create'%}">Create new book</a>
+    {% for book in object_list %}
+    <li>
+        <h4><a href="{% url 'book_detail' book.pk %}">{{book.title}} | {{book.published_date}}</a></h4>
+        (<a href="{% url 'book_update' book.pk %}">Edit</a>)
+        (<a href="{% url 'book_delete' book.pk %}">Delete</a>)
+        <h6>{{book.author}}</h6>
+        <p>{{book.description}}</p>
+    </li>
+    {% endfor %}
+</ul> 
